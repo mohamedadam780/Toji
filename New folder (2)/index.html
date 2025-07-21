@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>TojIYT</title>
+    <style>
+        @font-face {
+            font-family: 'MinecraftArabic';
+            src: url('minecraft-arabic.ttf') format('truetype');
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(135deg, #1a1a1a, #000000);
+            background-size: 400% 400%;
+            animation: softMove 15s ease infinite;
+            font-family: 'MinecraftArabic', sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        @keyframes softMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .slider {
+            position: relative;
+            max-width: 300px;
+            margin: 20px auto;
+        }
+
+        .slider img {
+            width: 100%;
+            border-radius: 15px;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .arrow.left { left: 10px; }
+        .arrow.right { right: 10px; }
+
+        .button {
+            background-color: #00ff88;
+            color: black;
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 12px;
+            margin: 20px 0;
+            display: inline-block;
+        }
+
+        .floating-links {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .floating-links a {
+            display: flex;
+            align-items: center;
+            color: white;
+            font-size: 14px;
+            text-decoration: none;
+            margin: 8px 0;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .floating-links a:hover {
+            opacity: 1;
+        }
+
+        .floating-links img {
+            width: 20px;
+            height: 20px;
+            margin-left: 8px;
+        }
+    </style>
+</head>
+<body>
+
+<header>TojIYT</header>
+
+<div class="slider">
+    <span class="arrow left" onclick="prevSlide()">&#10094;</span>
+    <img id="sliderImage" src="image1.png" alt="صور الريسوس">
+    <span class="arrow right" onclick="nextSlide()">&#10095;</span>
+</div>
+
+<a href="toji.mcpack" download class="button">تحميل الريسوس</a>
+
+<div class="floating-links">
+    <a href="https://t.me/toji_125" target="_blank">
+        <img src="telegram.png" alt="Telegram">
+        جروب التليجرام
+    </a>
+    <a href="https://www.tiktok.com/@toji1255?_t=ZS-8yDCEt8LQCv&_r=1" target="_blank">
+        <img src="tiktok.png" alt="TikTok">
+        حساب التيك توك
+    </a>
+</div>
+
+<script>
+    const images = ['image1.png', 'image2.png', 'image3.png'];
+    let current = 0;
+
+    function showImage(index) {
+        document.getElementById('sliderImage').src = images[index];
+    }
+
+    function nextSlide() {
+        current = (current + 1) % images.length;
+        showImage(current);
+    }
+
+    function prevSlide() {
+        current = (current - 1 + images.length) % images.length;
+        showImage(current);
+    }
+</script>
+
+</body>
+</html>
